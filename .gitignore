@@ -1,0 +1,7 @@
+.venv
+__pycache__
+addresses.txt
+private_keys.txt
+proxies.txt
+result.txt
+balance_checker_result.txt
