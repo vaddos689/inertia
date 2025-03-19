@@ -10,7 +10,7 @@ cd path_to_script_directory
 ```
 5. Download repository
 ```
-git clone https://github.com/vaddos689/inetria.git
+git clone https://github.com/vaddos689/inertia.git
 ```
 6. Go to script directory
 ```
