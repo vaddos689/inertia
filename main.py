@@ -22,8 +22,6 @@ async def start(module: str):
 
     accounts_to_process_ids = [account['id'] for account in accounts_to_process]
 
-    print([account['id'] for account in accounts_to_process])
-
     logger.info(f'Загрузил {len(accounts_to_process)} аккаунтов')
     logger.info(f'Все id аккаунтов для работы: {accounts_to_process_ids}')
 
