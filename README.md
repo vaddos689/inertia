@@ -31,6 +31,7 @@ pip install -r requirements.txt
 # Settings (general_settings.py):
 CAPSOLVER_API_KEY - API KEY for Solve captcha (https://www.capsolver.com/)
 RANDOM_PAUSE_BETWEEN_ACCOUNTS - [min_seconds, max_seconds] Seconds sleep between accounts
+ACCOUNTS_RANGE - Select working accounts range (from 1 to ...) [0, 0] - Select all accounts
 semaphore - number of simultaneously working accounts
 ## 
 

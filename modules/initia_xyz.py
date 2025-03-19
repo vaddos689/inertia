@@ -48,11 +48,19 @@ class InitiaXYZ:
             'turnstile_response': cf_result
         }
         response = await self.client.session.post(url, headers=headers, json=payload)
+
+        if response.status == 400:
+            logger.error(f'[{self.id}] [{self.faucet_address}] exceed request limit')
+            write_result(f'{self.faucet_address} INITIA_FAUCET EXCEED_REQUEST_LIMIT\n')
+            return
+        
         r = await response.json()
+
         if r['response']['tx_response']['txhash']:
             tx_hash = r['response']['tx_response']['txhash']
             logger.success(f'[{self.id}] [{self.faucet_address}] Faucet success: {tx_hash}')
             write_result(f'{self.faucet_address} INITIA_FAUCET {tx_hash}\n' )
+
         else:
             logger.error(f'[{self.id}] [{self.faucet_address}] Faucet error: {r}')
             write_result(f'{self.faucet_address} INITIA_FAUCET ERROR\n')
@@ -75,3 +83,4 @@ async def start_accounts_for_of_site_faucet(accounts):
         task.append(asyncio.create_task(start_module(account)))
 
     await asyncio.gather(*task)
+    logger.success('All accounts processed')
